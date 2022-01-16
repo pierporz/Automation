@@ -1,0 +1,14 @@
+#Only values between F1 and F12 are accepted
+
+#seconds: the seconds between one action and the next one
+#pause:   during recording you can pause and do tasks that will not be recorded
+#goOn:    during a pause you can continue pressing this key
+#paste:   simulate the CTRL+V
+#stopRec: stops the recording
+
+[config]
+seconds=0.5
+pause=F7
+goOn=F6
+paste=F8
+stopRec=F9
