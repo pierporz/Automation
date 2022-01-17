@@ -19,4 +19,5 @@ To run it, check config file to see Function Commands and then launch main.py.
 Added cmd window dimension in config file
 
 Added possibility to paste a list of value separated by a separator defined in config file. If number of iterations
-is greater then length of lists, the program will print from the first element.
+is greater then length of lists, the program will print from the first element. Example: copying 1&2&3&4, will paste
+1 in the first iteration, 2 in the second, 3 in third, 4 in fourth, 1 in fifth, 2 in sixth and so on.
