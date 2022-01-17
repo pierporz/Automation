@@ -16,4 +16,7 @@ To run it, check config file to see Function Commands and then launch main.py.
 ===========================================
 ***PEIRO91 - 17/01/2021 - Version 0.0.2 ***
 ===========================================
-Added cmd window dimensione in config file
+Added cmd window dimension in config file
+
+Added possibility to paste a list of value separated by a separator defined in config file. If number of iterations
+is greater then length of lists, the program will print from the first element.

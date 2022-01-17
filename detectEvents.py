@@ -36,21 +36,19 @@ parser = configparser.ConfigParser()
 parser.read('config.txt')
 
 pause = parser.get('config', 'pause')
-print("Pause with: " +pause)
 pause = retrieveCode(pause)
 
 
 goOn = parser.get('config', 'goOn')
-print("GoOn with: " +goOn)
 goOn = retrieveCode(goOn)
 
 paste = parser.get('config', 'paste')
-print("Paste with: " +paste)
 paste = retrieveCode(paste)
 
 stopRec = parser.get('config', 'stopRec')
-print("Stop Recording with: " +stopRec)
 stopRec = retrieveCode(stopRec)
+
+separator = parser.get('config', 'separator')
 
 def detectPressOrClick():
 #This function detect a key pressed. It use win32api library and uses codes that can be found at
@@ -80,7 +78,13 @@ def detectPressOrClick():
             win32clipboard.OpenClipboard()
             text = win32clipboard.GetClipboardData()
             win32clipboard.CloseClipboard()
-            pyautogui.typewrite(text)
+            if separator in text:
+                text=text.split(separator)
+                #paste from a list of items divided by separator. Each item is printed in different
+                #iteration
+                pyautogui.typewrite(text[0])
+            else:
+                pyautogui.typewrite(text)
 
     #0x02 is right click
     if pressed >= 0:

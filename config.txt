@@ -7,6 +7,7 @@
 #stopRec: stops the recording
 #width: width cmd window
 #length: length cmd window
+#separator: for multi paste mode, this is the separator used to divide the copied string. Each substring will be used in different iteration.
 
 
 [config]
@@ -17,3 +18,4 @@ paste=F8
 stopRec=F9
 width=30
 length=10
+separator=&

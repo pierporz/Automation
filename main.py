@@ -40,6 +40,9 @@ stopRec = parser.get('config', 'stopRec')
 print("Stop Recording with: " +stopRec)
 stopRec = retrieveCode(stopRec)
 
+separator = parser.get('config', 'separator')
+print("Separator for multi-paste: "+separator)
+
 if __name__ == '__main__':
     #variables initialization
     pressed = 0
@@ -80,5 +83,12 @@ if __name__ == '__main__':
     for j in range(int(loop)):
         for i in range(len(actionArray)):
             (pressed,x,y,text)=actionArray[i]
-            automate(pressed,x,y,text)
+            if type(text) is list:
+                #check that len of text is greater than iteration. If not begin from start.
+                if len(text) > j:
+                    automate(pressed,x,y,text[j])
+                else:
+                    automate(pressed,x,y,text[j%len(text)])
+            else:
+                automate(pressed,x,y,text)
             time.sleep(float(seconds))
