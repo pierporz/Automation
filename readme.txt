@@ -14,6 +14,6 @@ After input, the program will repeat all the action recorded. Seconds between ev
 To run it, check config file to see Function Commands and then launch main.py.
 
 ===========================================
-***PEIRO91 - 16/01/2021 - Version 0.0.2 ***
+***PEIRO91 - 17/01/2021 - Version 0.0.2 ***
 ===========================================
 Added cmd window dimensione in config file
