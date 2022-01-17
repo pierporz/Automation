@@ -5,6 +5,9 @@
 #goOn:    during a pause you can continue pressing this key
 #paste:   simulate the CTRL+V
 #stopRec: stops the recording
+#width: width cmd window
+#length: length cmd window
+
 
 [config]
 seconds=0.5
@@ -12,3 +15,5 @@ pause=F7
 goOn=F6
 paste=F8
 stopRec=F9
+width=30
+length=10

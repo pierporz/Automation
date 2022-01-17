@@ -4,16 +4,43 @@ import time
 import tkinter as tk
 from tkinter import simpledialog
 import configparser
-#import pkg_resources.py2_warn
+import os
 
+
+
+#file configuration retrieve dimension cmd window
+
+length = parser.get("config", "length")
+width = parser.get("config", "width")
+
+os.system("mode con cols="+str(width) +"lines=" +str(length))
+
+#file configuration retrieve
+parser = configparser.ConfigParser()
+parser.read("config.txt")
+seconds = parser.get("config", "seconds")
+
+parser = configparser.ConfigParser()
+parser.read('config.txt')
+
+pause = parser.get('config', 'pause')
+print("Pause with: " +pause)
+pause = retrieveCode(pause)
+
+
+goOn = parser.get('config', 'goOn')
+print("GoOn with: " +goOn)
+goOn = retrieveCode(goOn)
+
+paste = parser.get('config', 'paste')
+print("Paste with: " +paste)
+paste = retrieveCode(paste)
+
+stopRec = parser.get('config', 'stopRec')
+print("Stop Recording with: " +stopRec)
+stopRec = retrieveCode(stopRec)
 
 if __name__ == '__main__':
-
-    #file configuration retrieve
-    parser = configparser.ConfigParser()
-    parser.read("config.txt")
-    seconds = parser.get("config", "seconds")
-
     #variables initialization
     pressed = 0
     x = 0
@@ -30,7 +57,7 @@ if __name__ == '__main__':
         if pressed == "pause":
             while (pressed != "goOn"):
                 pressed,x,y,text = detectPressOrClick()
-        print(pressed,x,y,text)
+        #print(pressed,x,y,text)
         if (pressed,x,y,text) != (0, 0, 0, "") and  pressed != "stopRec" and pressed != "pause" and pressed != "goOn":
             time.sleep(0.2)
             if r != 0:

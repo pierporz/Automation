@@ -35,16 +35,21 @@ def retrieveCode(buttonName):
 parser = configparser.ConfigParser()
 parser.read('config.txt')
 
-goOn = parser.get('config', 'goOn')
-goOn = retrieveCode(goOn)
-
 pause = parser.get('config', 'pause')
+print("Pause with: " +pause)
 pause = retrieveCode(pause)
 
+
+goOn = parser.get('config', 'goOn')
+print("GoOn with: " +goOn)
+goOn = retrieveCode(goOn)
+
 paste = parser.get('config', 'paste')
+print("Paste with: " +paste)
 paste = retrieveCode(paste)
 
 stopRec = parser.get('config', 'stopRec')
+print("Stop Recording with: " +stopRec)
 stopRec = retrieveCode(stopRec)
 
 def detectPressOrClick():
