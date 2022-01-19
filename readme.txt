@@ -21,3 +21,9 @@ Added cmd window dimension in config file
 Added possibility to paste a list of value separated by a separator defined in config file. If number of iterations
 is greater then length of lists, the program will print from the first element. Example: copying 1&2&3&4, will paste
 1 in the first iteration, 2 in the second, 3 in third, 4 in fourth, 1 in fifth, 2 in sixth and so on.
+
+===========================================
+***PEIRO91 - 17/01/2022 - V1.0.3 ***
+===========================================
+Added possibility to paste using normal CTRL + V. When recording, this will paste the string not splitted. When Automating,
+it will print the string splitted. It should be only use when you need to paste a single value.
