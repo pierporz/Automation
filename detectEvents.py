@@ -85,6 +85,16 @@ def detectPressOrClick():
                 pyautogui.typewrite(text[0])
             else:
                 pyautogui.typewrite(text)
+    
+    #0x11 and 0x56 is CTRL + V pressed
+    if pressed >= 0:
+        pressedCTRL = win32api.GetKeyState(int(0x11))
+        pressedV = win32api.GetKeyState(int(0x56))
+        if pressedCTRL < 0 and pressedV < 0:
+            pressedNormalized = 'paste'
+            win32clipboard.OpenClipboard()
+            text = win32clipboard.GetClipboardData()
+            win32clipboard.CloseClipboard()
 
     #0x02 is right click
     if pressed >= 0:
