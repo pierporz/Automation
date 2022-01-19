@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import simpledialog
 import configparser
 import os
+import PySimpleGUI as sg
 
 
 
@@ -23,27 +24,27 @@ seconds = parser.get("config", "seconds")
 parser = configparser.ConfigParser()
 parser.read('config.txt')
 
-pause = parser.get('config', 'pause')
-print("Pause with: " +pause)
-pause = retrieveCode(pause)
+pauseButton = parser.get('config', 'pause')
+print("Pause with: " +pauseButton)
+pause = retrieveCode(pauseButton)
 
 
-goOn = parser.get('config', 'goOn')
-print("GoOn with: " +goOn)
-goOn = retrieveCode(goOn)
+goOnButton = parser.get('config', 'goOn')
+print("GoOn with: " +goOnButton)
+goOn = retrieveCode(goOnButton)
 
-paste = parser.get('config', 'paste')
-print("Paste with: " +paste)
-paste = retrieveCode(paste)
+pasteButton = parser.get('config', 'paste')
+print("Paste with: " +pasteButton)
+paste = retrieveCode(pasteButton)
 
-stopRec = parser.get('config', 'stopRec')
-print("Stop Recording with: " +stopRec)
-stopRec = retrieveCode(stopRec)
+stopRecButton = parser.get('config', 'stopRec')
+print("Stop Recording with: " +stopRecButton)
+stopRec = retrieveCode(stopRecButton)
 
 separator = parser.get('config', 'separator')
 print("Separator for multi-paste: "+separator)
 
-if __name__ == '__main__':
+def automation():
     #variables initialization
     pressed = 0
     x = 0
@@ -67,12 +68,14 @@ if __name__ == '__main__':
                 if (pressed,x,y,text) != actionArray[r-1]:
                     actionArray.append((pressed,x,y,text))
                     r = r + 1
+                    print (pressed,x,y,text)
             else:
                 actionArray.append((pressed,x,y,text))
-                r = r + 1 
+                r = r + 1
+                print (pressed,x,y,text) 
         #timesleep very low, because a click is very fast and we need to detect it
         time.sleep(0.01)
-    print (*actionArray , sep = "\n")
+    #print (*actionArray , sep = "\n")
 
     ############
     #Automation#
@@ -91,3 +94,31 @@ if __name__ == '__main__':
             else:
                 automate(pressed,x,y,text)
             time.sleep(float(seconds))
+
+
+
+
+
+if __name__ == '__main__':
+
+    #############
+    #GUI Opening#
+    #############
+    layout = [[sg.Text("Pause with: "+pauseButton)],
+                [sg.Text("Continue with: "+goOnButton)],
+                [sg.Text("Paste with CTRL + V or : "+pasteButton)],
+                [sg.Text("Stop Recording with: "+stopRecButton)],
+                [sg.Text("Separator for multi-paste will be: "+separator)],
+                [sg.Button("Start Recording")]]
+    #create the window
+    window = sg.Window("Automation",layout)
+    while True:
+        event,values = window.read()
+        if event == "Start Recording":
+            window.close()
+            automation()
+            break
+                        
+        if event == sg.WIN_CLOSED:
+            window.close()
+            break   

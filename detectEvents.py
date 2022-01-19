@@ -38,7 +38,6 @@ parser.read('config.txt')
 pause = parser.get('config', 'pause')
 pause = retrieveCode(pause)
 
-
 goOn = parser.get('config', 'goOn')
 goOn = retrieveCode(goOn)
 
@@ -92,6 +91,7 @@ def detectPressOrClick():
         pressedV = win32api.GetKeyState(int(0x56))
         if pressedCTRL < 0 and pressedV < 0:
             pressedNormalized = 'paste'
+            pressed = pressedCTRL
             win32clipboard.OpenClipboard()
             text = win32clipboard.GetClipboardData()
             win32clipboard.CloseClipboard()
