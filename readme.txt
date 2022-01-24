@@ -27,3 +27,8 @@ is greater then length of lists, the program will print from the first element. 
 ===========================================
 Added possibility to paste using normal CTRL + V. When recording, this will paste the string not splitted. When Automating,
 it will print the string splitted. It should be only use when you need to paste a single value.
+
+===========================================
+***PEIRO91 - 24/01/2022 - V1.0.4 ***
+===========================================
+Added possibility to select all with CTRL + A and to Backspace with Backspace button.
