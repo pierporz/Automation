@@ -90,6 +90,7 @@ def automation():
                 #check that len of text is greater than iteration. If not begin from start.
                 if len(text) > j:
                     automate(pressed,x,y,text[j])
+                else:
                     automate(pressed,x,y,text[j%len(text)])
             else:
                 automate(pressed,x,y,text)
