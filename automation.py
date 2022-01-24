@@ -13,3 +13,7 @@ def automate(pressed,x,y,text):
         pyautogui.rightClick(x,y)
     if pressed == "Left Click":
         pyautogui.click(x,y)
+    if pressed == "selectAll":
+        pyautogui.hotkey('ctrl', 'a')
+    if pressed == "backspace":
+        pyautogui.press('backspace')

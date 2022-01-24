@@ -110,6 +110,8 @@ if __name__ == '__main__':
                 [sg.Text("Paste with CTRL + V or : "+pasteButton)],
                 [sg.Text("Stop Recording with: "+stopRecButton)],
                 [sg.Text("Separator for multi-paste will be: "+separator)],
+                [sg.Text("Select All with CTRL + A")],
+                [sg.Text("Backspace with backspace button")],
                 [sg.Button("Start Recording")]]
     #create the window
     window = sg.Window("Automation",layout)

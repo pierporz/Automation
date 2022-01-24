@@ -96,6 +96,20 @@ def detectPressOrClick():
             text = win32clipboard.GetClipboardData()
             win32clipboard.CloseClipboard()
 
+    #0x11 and 0x41 is CTRL + a pressed
+    if pressed >= 0:
+        pressedCTRL = win32api.GetKeyState(int(0x11))
+        pressedV = win32api.GetKeyState(int(0x41))
+        if pressedCTRL < 0 and pressedV < 0:
+            pressedNormalized = 'selectAll'
+            pressed = pressedCTRL
+
+    #0x08 is Backspace button
+    if pressed >= 0:
+        pressed = win32api.GetKeyState(int(0x08))
+        if pressed < 0:
+            pressedNormalized = 'backspace'
+
     #0x02 is right click
     if pressed >= 0:
         pressed = win32api.GetKeyState(0x02)
