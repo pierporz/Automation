@@ -34,6 +34,6 @@ it will print the string splitted. It should be only use when you need to paste 
 Added possibility to select all with CTRL + A and to Backspace with Backspace button.
 
 ===========================================
-***PEIRO91 - 24/01/2022 - V1.0.5 ***
+***PEIRO91 - 01/02/2022 - V1.0.5 ***
 ===========================================
 Added possibility to record Enter button.
