@@ -17,3 +17,6 @@ def automate(pressed,x,y,text):
         pyautogui.hotkey('ctrl', 'a')
     if pressed == "backspace":
         pyautogui.press('backspace')
+    if pressed == "enter":
+        pyautogui.press('enter')
+    

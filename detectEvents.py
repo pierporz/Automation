@@ -103,7 +103,12 @@ def detectPressOrClick():
         if pressedCTRL < 0 and pressedV < 0:
             pressedNormalized = 'selectAll'
             pressed = pressedCTRL
-
+    #0x0D is Enter button
+    if pressed >= 0:
+        pressed = win32api.GetKeyState(int(0x0D))
+        if pressed < 0:
+            pressedNormalized = 'enter'
+            
     #0x08 is Backspace button
     if pressed >= 0:
         pressed = win32api.GetKeyState(int(0x08))
